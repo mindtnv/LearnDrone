@@ -3,10 +3,10 @@ type: docker
 name: default
 
 steps:
-  - name: build
+  - name: publish
     image: mcr.microsoft.com/dotnet/sdk:7.0
     commands:
-      - dotnet build
+      - dotnet publish -c Release -o /app
 
   - name: docker-build
     image: plugins/docker
@@ -15,4 +15,4 @@ steps:
       password: Warnet77
       repo: registry.dev.gbms.site/learn-drone
       registry: registry.dev.gbms.site
-      dockerfile: LearnDrone/Dockerfile
+      dockerfile: LearnDrone/Dockerfile.Drone
