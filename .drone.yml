@@ -1,0 +1,17 @@
+﻿kind: pipeline
+name: default
+
+steps:
+  - name: test
+    image: mcr.microsoft.com/dotnet/sdk:6.0
+    commands:
+      - dotnet build
+
+  - name: docker
+    image: plugins/docker
+    settings:
+      username: admin
+      password: Warnet77
+      repo: repository.dev.gbms.site
+      tags:
+        - latest
