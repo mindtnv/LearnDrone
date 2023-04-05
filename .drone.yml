@@ -13,7 +13,7 @@ steps:
     settings:
       username: admin
       password: Warnet77
-      repo: repository.dev.gbms.site
+      registry: registry.dev.gbms.site
       dockerfile: LearnDrone/Dockerfile
       tags:
         - latest
