@@ -6,7 +6,7 @@ steps:
   - name: publish
     image: mcr.microsoft.com/dotnet/sdk:7.0
     commands:
-      - dotnet publish -c Release -o /app
+      - dotnet publish -c Release -o ./app
 
   - name: docker-build
     image: plugins/docker
