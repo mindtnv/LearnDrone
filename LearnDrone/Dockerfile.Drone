@@ -1,6 +1,6 @@
 ﻿FROM mcr.microsoft.com/dotnet/aspnet:7.0
-WORKDIR /app
-COPY . .
+COPY ["./app" "/app"]
 EXPOSE 80
 EXPOSE 443
-ENTRYPOINT ["dotnet", "./app/LearnDrone.dll"]
+WORKDIR /app
+ENTRYPOINT ["dotnet", "LearnDrone.dll"]
