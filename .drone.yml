@@ -15,5 +15,3 @@ steps:
       password: Warnet77
       registry: registry.dev.gbms.site
       dockerfile: LearnDrone/Dockerfile
-      tags:
-        - latest
