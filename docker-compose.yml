@@ -1,4 +1,6 @@
-﻿services:
+﻿version: "3.7"
+
+services:
   test:
     image: registry.dev.ems-app.ru/learn-drone
     deploy:
