@@ -28,4 +28,4 @@ steps:
       INPUT_SSH_PUBLIC_KEY:
         from_secret: ssh-public-key
     commands:
-      - sh ./deploy.sh
+      - bash ./deploy.sh
