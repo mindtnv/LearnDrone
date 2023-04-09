@@ -12,7 +12,7 @@ steps:
     image: plugins/docker
     settings:
       username: admin
-      password: Warnet77
-      repo: registry.dev.gbms.site/learn-drone
-      registry: registry.dev.gbms.site
+      password: 8Kqt9z6L
+      repo: registry.dev.ems-app/learn-drone
+      registry: registry.dev.ems-app
       dockerfile: LearnDrone/Dockerfile.Drone
