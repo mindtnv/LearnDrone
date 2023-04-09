@@ -22,16 +22,20 @@ steps:
   - name: deploy
     image: docker:stable
     environment:
-      INPUT_REMOTE_HOST: 
+      REGISTRY_USERNAME:
+        from_secret: registry_username
+      REGISTRY_PASSWORD:
+        from_secret: registry_password
+      INPUT_REMOTE_HOST:
         from_secret: ssh-host
       INPUT_SSH_PRIVATE_KEY:
         from_secret: ssh-private-key
       INPUT_SSH_PUBLIC_KEY:
         from_secret: ssh-public-key
+    
     commands:
-      -  chmod +x ./deploy.sh
-      -  echo $REGISTRY_USERNAME
-      -  docker login registry.dev.ems-app.ru -u $REGISTRY_USERNAME -p $REGISTRY_PASSWORD
+      - chmod +x ./deploy.sh
+      - echo $REGISTRY_USERNAME
+      - docker login registry.dev.ems-app.ru -u $REGISTRY_USERNAME -p $REGISTRY_PASSWORD
       - ./deploy.sh learn-drone
-    secrets: [registry_username, registry_password]
     
