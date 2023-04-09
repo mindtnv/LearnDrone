@@ -10,28 +10,6 @@ steps:
     commands:
       - dotnet publish -c Release -o ./app
 
-  - name: test
-    image: docker:stable
-    environment:
-      DOCKERFILE:
-        from_secret: dockerfile
-      IMAGE:
-        from_secret: image
-      REGISTRY:
-        from_secret: registry
-      REGISTRY_USERNAME:
-        from_secret: registry_username
-      REGISTRY_PASSWORD:
-        from_secret: registry_password
-      INPUT_REMOTE_HOST:
-        from_secret: ssh_host
-      INPUT_SSH_PRIVATE_KEY:
-        from_secret: ssh_private_key
-      INPUT_SSH_PUBLIC_KEY:
-        from_secret: ssh_public_key
-    commands:
-      - echo $${REGISTRY}
-
   - name: docker-build
     image: plugins/docker
     environment:
@@ -56,7 +34,7 @@ steps:
         from_secret: registry_username
       password:
         from_secret: registry_password
-      repo: ${{ env.REGISTRY }}/${{ env.IMAGE }}
+      repo: "${ REGISTRY }/${ env.IMAGE }"
       registry:
         from_secret: registry
       dockerfile:
