@@ -1,5 +1,4 @@
-﻿#!/bin/bash
-set -eu
+﻿set -eu
 
 if [ -z "$INPUT_REMOTE_HOST" ]; then
     echo "Input remote_host is required!"
@@ -35,4 +34,4 @@ if [ ${INPUT_REMOTE_HOST#"ssh://"} != "$INPUT_REMOTE_HOST" ]; then
 fi
 
 echo "Connecting to $INPUT_REMOTE_HOST..."
-docker --log-level debug --host "$INPUT_REMOTE_HOST" stack deploy --with-registry-auth --prune -c docker-compose.yml learn-drone
+docker --log-level debug --host "$INPUT_REMOTE_HOST" stack deploy --with-registry-auth --prune -c docker-compose.yml $1
