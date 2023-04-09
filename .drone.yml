@@ -12,9 +12,9 @@ steps:
     image: plugins/docker
     settings:
       username:
-        from_secret: registry-username
+        from_secret: registry_username
       password:
-        from_secret: registry-password
+        from_secret: registry_password
       repo: registry.dev.ems-app.ru/learn-drone
       registry: registry.dev.ems-app.ru
       dockerfile: LearnDrone/Dockerfile.Drone
