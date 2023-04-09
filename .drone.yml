@@ -1,6 +1,7 @@
 ﻿kind: pipeline
 type: docker
 name: default
+
 environment:
   DOCKERFILE:
     from_secret: dockerfile
@@ -18,8 +19,7 @@ environment:
     from_secret: ssh_private_key
   INPUT_SSH_PUBLIC_KEY:
     from_secret: ssh_public_key
-    
-    
+
 steps:
   - name: build
     image: mcr.microsoft.com/dotnet/sdk:7.0
@@ -40,8 +40,6 @@ steps:
 
   - name: deploy
     image: docker:stable
-    environment:
-    
     
     commands:
       - chmod +x ./deploy.sh
