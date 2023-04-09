@@ -13,6 +13,6 @@ steps:
     settings:
       username: admin
       password: 8Kqt9z6L
-      repo: registry.dev.ems-app/learn-drone
-      registry: registry.dev.ems-app
+      repo: registry.dev.ems-app.ru/learn-drone
+      registry: registry.dev.ems-app.ru
       dockerfile: LearnDrone/Dockerfile.Drone
