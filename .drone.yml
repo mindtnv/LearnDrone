@@ -20,8 +20,8 @@ steps:
       dockerfile: LearnDrone/Dockerfile.Drone
 
   - name: deploy
-    image: docker
-    user: root
+    image: docker:stable
+    user: 0
     environment:
       INPUT_REMOTE_HOST: user@ems-app.ru
       INPUT_SSH_PRIVATE_KEY:
@@ -29,4 +29,4 @@ steps:
       INPUT_SSH_PUBLIC_KEY:
         from_secret: ssh-public-key
     commands:
-      - deploy.sh
+      - ./deploy.sh
