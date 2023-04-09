@@ -28,6 +28,8 @@ steps:
         from_secret: ssh-private-key
       INPUT_SSH_PUBLIC_KEY:
         from_secret: ssh-public-key
+    secrets: [registry-username, registry-password]
     commands:
       -  chmod +x ./deploy.sh
+      -  docker login registry.dev.ems-app.ru -u $REGISTRY-USERNAME -p $REGISTRY-PASSWORD
       - ./deploy.sh learn-drone
