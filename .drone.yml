@@ -56,8 +56,9 @@ steps:
         from_secret: registry_username
       password:
         from_secret: registry_password
-      repo: $${REGISTRY}/$${IMAGE}
-      registry: $${REGISTRY}
+      repo: "${{ env.REGISTRY }}/${{ env.IMAGE }}"
+      registry: 
+        from_secret: registry
       dockerfile:
         from_secret: dockerfile
 
