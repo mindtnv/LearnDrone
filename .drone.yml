@@ -28,6 +28,7 @@ steps:
         from_secret: ssh-private-key
       INPUT_SSH_PUBLIC_KEY:
         from_secret: ssh-public-key
+      ARGS: stack deploy --with-registry-auth --prune -c docker-compose.yml learn-dronec
     commands:
       -  chmod +x ./deploy.sh
       - ./deploy.sh
