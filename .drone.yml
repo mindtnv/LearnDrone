@@ -35,7 +35,7 @@ steps:
         from_secret: registry_username
       password:
         from_secret: registry_password
-      repo: "$$REGISTRY/$$IMAGE"
+      repo: ${REGISTRY}/${IMAGE}
       registry:
         from_secret: registry
       dockerfile:
