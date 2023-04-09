@@ -1,4 +1,4 @@
-﻿#!/bin/sh
+﻿#!/bin/bash
 set -eu
 
 if [ -z "$INPUT_REMOTE_HOST" ]; then
@@ -35,4 +35,4 @@ if [ ${INPUT_REMOTE_HOST#"ssh://"} != "$INPUT_REMOTE_HOST" ]; then
 fi
 
 echo "Connecting to $INPUT_REMOTE_HOST..."
-docker --log-level debug --host "$INPUT_REMOTE_HOST" "$@" 2>&1
+docker --log-level debug --host "$INPUT_REMOTE_HOST" stack deploy --with-registry-auth --prune -c docker-compose.yml learn-drone

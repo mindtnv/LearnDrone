@@ -30,4 +30,4 @@ steps:
         from_secret: ssh-public-key
     commands:
       -  chmod +x ./deploy.sh
-      - ./deploy.sh stack deploy --with-registry-auth --prune -c docker-compose.yml learn-drone
+      - ./deploy.sh
