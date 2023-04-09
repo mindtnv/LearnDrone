@@ -21,6 +21,7 @@ steps:
 
   - name: deploy
     image: docker
+    user: root
     environment:
       INPUT_REMOTE_HOST: user@ems-app.ru
       INPUT_SSH_PRIVATE_KEY:
