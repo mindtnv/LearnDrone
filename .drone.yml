@@ -17,8 +17,7 @@ steps:
         from_secret: registry-password
       repo: registry.dev.ems-app.ru/learn-drone
       registry: registry.dev.ems-app.ru
-      dockerfile: 
-        from_secret: dockerfile
+      dockerfile: LearnDrone/Dockerfile.Drone
 
   - name: deploy
     image: docker:stable
