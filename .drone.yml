@@ -11,8 +11,10 @@ steps:
   - name: docker-build
     image: plugins/docker
     settings:
-      username: admin
-      password: 8Kqt9z6L
+      username:
+        from_secret: registry-username
+      password: 
+        from_secret: registry-password
       repo: registry.dev.ems-app.ru/learn-drone
       registry: registry.dev.ems-app.ru
       dockerfile: LearnDrone/Dockerfile.Drone
