@@ -30,7 +30,7 @@ steps:
       INPUT_SSH_PUBLIC_KEY:
         from_secret: ssh_public_key
     commands: 
-      - echo $REGISTRY
+      - echo $${REGISTRY}
   
   - name: docker-build
     image: plugins/docker
