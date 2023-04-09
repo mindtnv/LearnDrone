@@ -3,7 +3,7 @@ type: docker
 name: default
 
 steps:
-  - name: publish
+  - name: build
     image: mcr.microsoft.com/dotnet/sdk:7.0
     commands:
       - dotnet publish -c Release -o ./app
@@ -13,8 +13,19 @@ steps:
     settings:
       username:
         from_secret: registry-username
-      password: 
+      password:
         from_secret: registry-password
       repo: registry.dev.ems-app.ru/learn-drone
       registry: registry.dev.ems-app.ru
       dockerfile: LearnDrone/Dockerfile.Drone
+
+  - name: deploy
+    image: apline
+    environment:
+      INPUT_REMOTE_HOST: user@ems-app.ru
+      INPUT_SSH_PRIVATE_KEY:
+        from_secret: ssh-private-key
+      INPUT_SSH_PUBLIC_KEY:
+        from_secret: ssh-public-key
+    commands:
+      - sh ./deploy.sh

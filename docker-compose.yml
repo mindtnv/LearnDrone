@@ -1,0 +1,21 @@
+﻿services:
+  test:
+    image: registry.dev.ems-app.ru/learn-drone
+    deploy:
+      replicas: 1
+      mode: replicated
+      labels:
+        - traefik.enable=true
+        - traefik.docker.network=traefik-public
+        # HTTP
+        - traefik.http.routers.learn-drone-http.entrypoints=http
+        - traefik.http.routers.learn-drone-http.service=learn-drone
+        - traefik.http.routers.learn-drone-http.rule=Host(`test.dev.ems-app.ru`)
+        - traefik.http.routers.learn-drone-http.middlewares=https-redirect
+        - traefik.http.routers.learn-drone.entrypoints=https
+        # HTTPS
+        - traefik.http.routers.learn-drone.rule=Host(`test.dev.ems-app.ru`)
+        - traefik.http.routers.learn-drone.tls=true
+        - traefik.http.routers.learn-drone.tls.certresolver=le
+        - traefik.http.routers.learn-drone.service=learn-drone
+        - traefik.http.services.learn-drone.loadbalancer.server.port=5000
