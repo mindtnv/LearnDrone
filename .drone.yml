@@ -20,7 +20,7 @@ steps:
       dockerfile: LearnDrone/Dockerfile.Drone
 
   - name: deploy
-    image: alpine
+    image: docker
     environment:
       INPUT_REMOTE_HOST: user@ems-app.ru
       INPUT_SSH_PRIVATE_KEY:
