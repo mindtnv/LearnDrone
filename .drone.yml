@@ -2,23 +2,7 @@
 type: docker
 name: default
 
-environment:
-  DOCKERFILE:
-    from_secret: dockerfile
-  IMAGE:
-    from_secret: image
-  REGISTRY:
-    from_secret: registry
-  REGISTRY_USERNAME:
-    from_secret: registry_username
-  REGISTRY_PASSWORD:
-    from_secret: registry_password
-  INPUT_REMOTE_HOST:
-    from_secret: ssh_host
-  INPUT_SSH_PRIVATE_KEY:
-    from_secret: ssh_private_key
-  INPUT_SSH_PUBLIC_KEY:
-    from_secret: ssh_public_key
+
 
 steps:
   - name: build
@@ -28,6 +12,23 @@ steps:
 
   - name: docker-build
     image: plugins/docker
+    environment:
+      DOCKERFILE:
+        from_secret: dockerfile
+      IMAGE:
+        from_secret: image
+      REGISTRY:
+        from_secret: registry
+      REGISTRY_USERNAME:
+        from_secret: registry_username
+      REGISTRY_PASSWORD:
+        from_secret: registry_password
+      INPUT_REMOTE_HOST:
+        from_secret: ssh_host
+      INPUT_SSH_PRIVATE_KEY:
+        from_secret: ssh_private_key
+      INPUT_SSH_PUBLIC_KEY:
+        from_secret: ssh_public_key
     settings:
       username:
         from_secret: registry_username
@@ -40,7 +41,23 @@ steps:
 
   - name: deploy
     image: docker:stable
-    
+    environment:
+      DOCKERFILE:
+        from_secret: dockerfile
+      IMAGE:
+        from_secret: image
+      REGISTRY:
+        from_secret: registry
+      REGISTRY_USERNAME:
+        from_secret: registry_username
+      REGISTRY_PASSWORD:
+        from_secret: registry_password
+      INPUT_REMOTE_HOST:
+        from_secret: ssh_host
+      INPUT_SSH_PRIVATE_KEY:
+        from_secret: ssh_private_key
+      INPUT_SSH_PUBLIC_KEY:
+        from_secret: ssh_public_key
     commands:
       - chmod +x ./deploy.sh
       - echo $REGISTRY_USERNAME
