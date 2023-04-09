@@ -15,7 +15,7 @@ steps:
         from_secret: registry-username
       password:
         from_secret: registry-password
-      repo: $REGISTRY/$IMAGE
+      repo: ${REGISTRY}/${IMAGE}
       registry: 
         from_secret: registry
       dockerfile: 
@@ -33,4 +33,4 @@ steps:
         from_secret: ssh-public-key
     commands:
       -  chmod +x ./deploy.sh
-      - ./deploy.sh $IMAGE
+      - ./deploy.sh ${IMAGE}
