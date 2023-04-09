@@ -23,7 +23,8 @@ steps:
     image: docker:stable
     user: 0
     environment:
-      INPUT_REMOTE_HOST: user@ems-app.ru
+      INPUT_REMOTE_HOST: 
+        from_secret: ssh-host
       INPUT_SSH_PRIVATE_KEY:
         from_secret: ssh-private-key
       INPUT_SSH_PUBLIC_KEY:
