@@ -29,12 +29,13 @@ steps:
         from_secret: ssh_private_key
       INPUT_SSH_PUBLIC_KEY:
         from_secret: ssh_public_key
+        
     settings:
       username:
         from_secret: registry_username
       password:
         from_secret: registry_password
-      repo: "${REGISTRY}/${IMAGE}"
+      repo: "$REGISTRY/$IMAGE"
       registry:
         from_secret: registry
       dockerfile:
