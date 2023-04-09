@@ -15,15 +15,13 @@ steps:
         from_secret: registry-username
       password:
         from_secret: registry-password
-      repo: ${REGISTRY}/${IMAGE}
-      registry: 
-        from_secret: registry
+      repo: registry.dev.ems-app.ru/learn-drone
+      registry: registry.dev.ems-app.ru
       dockerfile: 
         from_secret: dockerfile
 
   - name: deploy
     image: docker:stable
-    user: 0
     environment:
       INPUT_REMOTE_HOST: 
         from_secret: ssh-host
@@ -33,4 +31,4 @@ steps:
         from_secret: ssh-public-key
     commands:
       -  chmod +x ./deploy.sh
-      - ./deploy.sh ${IMAGE}
+      - ./deploy.sh learn-drone
