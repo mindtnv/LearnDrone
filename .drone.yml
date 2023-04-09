@@ -2,15 +2,13 @@
 type: docker
 name: default
 
-
-
 steps:
-  - name: build
+  - name: build-sources
     image: mcr.microsoft.com/dotnet/sdk:7.0
     commands:
       - dotnet publish -c Release -o ./app
 
-  - name: docker-build
+  - name: build-image
     image: plugins/docker
     settings:
       username:
@@ -24,7 +22,7 @@ steps:
       dockerfile:
         from_secret: dockerfile
 
-  - name: deploy
+  - name: deploy-image
     image: docker:stable
     environment:
       IMAGE:
