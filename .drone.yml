@@ -31,5 +31,6 @@ steps:
     secrets: [registry-username, registry-password]
     commands:
       -  chmod +x ./deploy.sh
+      -  echo $REGISTRY-USERNAME
       -  docker login registry.dev.ems-app.ru -u $REGISTRY-USERNAME -p $REGISTRY-PASSWORD
       - ./deploy.sh learn-drone
