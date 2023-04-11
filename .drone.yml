@@ -51,7 +51,9 @@ steps:
       - docker login $REGISTRY -u $REGISTRY_USERNAME -p $REGISTRY_PASSWORD
       - ./deploy.sh $IMAGE
 
-  - name: deploy-dev-notification
+
+
+  - name: deploy-complete-notification
     image: appleboy/drone-telegram
     settings:
       token:
@@ -59,5 +61,26 @@ steps:
           telegram_token
       to:
         499144473
-      message: "🟢**Deploy complete**\n\n**${DRONE_REPO}**\n`${DRONE_COMMIT}`"
+      message: "🟢 **Deploy complete**\n\n**${DRONE_REPO}**\n`${DRONE_COMMIT}`"
       format: markdown
+      when:
+        status:
+          - success
+
+
+  - name: deploy-fail-notification
+    image: appleboy/drone-telegram
+    settings:
+      token:
+        from_secret:
+          telegram_token
+      to:
+        499144473
+      message: "🔴 **Deploy fails**\n\n**${DRONE_REPO}**\n`${DRONE_COMMIT}`"
+      format: markdown
+    when:
+      status:
+        - failure
+    
+      
+  
