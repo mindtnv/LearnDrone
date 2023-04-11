@@ -67,8 +67,10 @@ steps:
         {{/success}}
         
         #${DRONE_BUILD_NUMBER} - ${DRONE_BRANCH} - ${DRONE_REPO}
-        
-        {DRONE_BUILD_LINK}
+        //n
+        ${DRONE_COMMIT_MESSAGE}
+        //n
+        ${DRONE_BUILD_LINK}
       format: markdown
       when:
         status:
