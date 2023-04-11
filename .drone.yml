@@ -64,6 +64,7 @@ steps:
           🟢 **Deploy complete**\n\n**#{{build.number}} - ${DRONE_REPO}**\n`${DRONE_COMMIT}`
         {{else}}
           🔴 **Deploy failed**\n\n**#{{build.number}} - ${DRONE_REPO}**\n`${DRONE_COMMIT}`
+        {{/success}}
       format: markdown
       when:
         status:
