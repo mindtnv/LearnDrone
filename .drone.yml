@@ -3,48 +3,48 @@ type: docker
 name: default
 
 steps:
-  - name: build-sources
-    image: mcr.microsoft.com/dotnet/sdk:7.0
-    commands:
-      - dotnet publish -c Release -o ./app
-
-  - name: build-image
-    image: plugins/docker
-    settings:
-      username:
-        from_secret: registry_username
-      password:
-        from_secret: registry_password
-      repo:
-        from_secret: repo
-      registry:
-        from_secret: registry
-      dockerfile:
-        from_secret: dockerfile
-
-  - name: deploy-image
-    image: docker:stable
-    environment:
-      IMAGE:
-        from_secret: image
-      REGISTRY:
-        from_secret: registry
-      REGISTRY_USERNAME:
-        from_secret: registry_username
-      REGISTRY_PASSWORD:
-        from_secret: registry_password
-      INPUT_REMOTE_HOST:
-        from_secret: ssh_host
-      INPUT_SSH_PRIVATE_KEY:
-        from_secret: ssh_private_key
-      INPUT_SSH_PUBLIC_KEY:
-        from_secret: ssh_public_key
-    
-    commands:
-      - chmod +x ./deploy.sh
-      - echo $REGISTRY_USERNAME
-      - docker login $REGISTRY -u $REGISTRY_USERNAME -p $REGISTRY_PASSWORD
-      - ./deploy.sh $IMAGE
+#  - name: build-sources
+#    image: mcr.microsoft.com/dotnet/sdk:7.0
+#    commands:
+#      - dotnet publish -c Release -o ./app
+#
+#  - name: build-image
+#    image: plugins/docker
+#    settings:
+#      username:
+#        from_secret: registry_username
+#      password:
+#        from_secret: registry_password
+#      repo:
+#        from_secret: repo
+#      registry:
+#        from_secret: registry
+#      dockerfile:
+#        from_secret: dockerfile
+#
+#  - name: deploy-image
+#    image: docker:stable
+#    environment:
+#      IMAGE:
+#        from_secret: image
+#      REGISTRY:
+#        from_secret: registry
+#      REGISTRY_USERNAME:
+#        from_secret: registry_username
+#      REGISTRY_PASSWORD:
+#        from_secret: registry_password
+#      INPUT_REMOTE_HOST:
+#        from_secret: ssh_host
+#      INPUT_SSH_PRIVATE_KEY:
+#        from_secret: ssh_private_key
+#      INPUT_SSH_PUBLIC_KEY:
+#        from_secret: ssh_public_key
+#    
+#    commands:
+#      - chmod +x ./deploy.sh
+#      - echo $REGISTRY_USERNAME
+#      - docker login $REGISTRY -u $REGISTRY_USERNAME -p $REGISTRY_PASSWORD
+#      - ./deploy.sh $IMAGE
 
   - name: deploy-dev-notification
     image: appleboy/drone-telegram
@@ -54,6 +54,4 @@ steps:
           telegram_token
       to:
         499144473
-      message: test {{ env }}
-      template_vars:
-        env: testing
+      message: "${DRONE_COMMIT} Deploy complete"
