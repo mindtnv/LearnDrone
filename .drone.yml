@@ -54,4 +54,6 @@ steps:
           telegram_token
       to:
         499144473
-      message: DEV deploy complete
+      message: test ${env}
+      template_vars:
+        env: testing
