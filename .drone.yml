@@ -54,5 +54,5 @@ steps:
           telegram_token
       to:
         499144473
-      message: "🛠 Deploy complete\nCommit `${DRONE_COMMIT}`"
+      message: "🛠**Deploy complete**\n\n**${DRONE_REPO}\nSHA `${DRONE_COMMIT}`"
       format: markdown
