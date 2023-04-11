@@ -47,7 +47,7 @@ steps:
       - ./deploy.sh $IMAGE
 
   - name: deploy-dev-notification
-    image: appleboy/drone-telegram:latest
+    image: appleboy/drone-telegram
     settings:
       token:
         from_secrets:
