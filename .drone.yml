@@ -66,8 +66,9 @@ steps:
           🔴 **Deploy failed**
         {{/success}}
         
-        ${DRONE_BRANCH} - ${DRONE_BUILD_NUMBER} - **${DRONE_REPO}**
-        `${DRONE_COMMIT}`
+        #${DRONE_BUILD_NUMBER} - ${DRONE_BRANCH} - ${DRONE_REPO}
+        
+        {DRONE_BUILD_LINK}
       format: markdown
       when:
         status:
