@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearnDrone", "LearnDrone\LearnDrone.csproj", "{3D6D657C-6B1C-4926-9EA4-53EAB8B7D7BE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearnDrone.Tests", "LearnDrone.Tests\LearnDrone.Tests.csproj", "{0AFC0238-05EA-4427-AA8C-DBE8644BEF09}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{3D6D657C-6B1C-4926-9EA4-53EAB8B7D7BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3D6D657C-6B1C-4926-9EA4-53EAB8B7D7BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3D6D657C-6B1C-4926-9EA4-53EAB8B7D7BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0AFC0238-05EA-4427-AA8C-DBE8644BEF09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AFC0238-05EA-4427-AA8C-DBE8644BEF09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AFC0238-05EA-4427-AA8C-DBE8644BEF09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AFC0238-05EA-4427-AA8C-DBE8644BEF09}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
