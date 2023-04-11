@@ -54,6 +54,6 @@ steps:
           telegram_token
       to:
         499144473
-      message: test ${env}
+      message: test {{ env }}
       template_vars:
         env: testing
