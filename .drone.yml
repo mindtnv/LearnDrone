@@ -45,4 +45,13 @@ steps:
       - echo $REGISTRY_USERNAME
       - docker login $REGISTRY -u $REGISTRY_USERNAME -p $REGISTRY_PASSWORD
       - ./deploy.sh $IMAGE
-    
+
+  - name: deploy-dev-notification
+    image: appleboy/drone-telegram:latest
+    settings:
+      token:
+        from_secrets:
+          telegram_token
+      to:
+        499144473
+      message: DEV deploy complete
