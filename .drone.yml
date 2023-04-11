@@ -61,10 +61,12 @@ steps:
         499144473
       message: >
         {{#success build.status}}
-          🟢 **Deploy complete**\n\n**#{{build.number}} - ${DRONE_REPO}**\n`${DRONE_COMMIT}`
+          🟢 **Deploy complete**
         {{else}}
-          🔴 **Deploy failed**\n\n**#{{build.number}} - ${DRONE_REPO}**\n`${DRONE_COMMIT}`
+          🔴 **Deploy failed**
         {{/success}}
+        #{{build.number}} - **${DRONE_REPO}**
+        `${DRONE_COMMIT}`
       format: markdown
       when:
         status:
